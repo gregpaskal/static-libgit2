@@ -1,4 +1,5 @@
 # This build file was copied & modified from https://github.com/light-tech/LibGit2-On-iOS
+# Modified by Greg Paskal (2026-01-09): Updated libssh2 to 1.11.0 for RSA-SHA2 support
 
 export REPO_ROOT=`pwd`
 export DEPENDENCIES_ROOT="$REPO_ROOT/dependencies"
@@ -139,20 +140,22 @@ function build_openssl() {
 }
 
 ### Build libssh2 for a given platform (assume openssl was built)
+### Updated to 1.11.0 for RSA-SHA2-256/512 support (required by GitHub since 2021)
 function build_libssh2() {
     setup_variables $1 install-libssh2
 
-    rm -rf libssh2-1.10.0
-    test -f libssh2-1.10.0.tar.gz || wget -q https://www.libssh2.org/download/libssh2-1.10.0.tar.gz
-    tar xzf libssh2-1.10.0.tar.gz
-    cd libssh2-1.10.0
+    rm -rf libssh2-1.11.0
+    test -f libssh2-1.11.0.tar.gz || wget -q https://www.libssh2.org/download/libssh2-1.11.0.tar.gz
+    tar xzf libssh2-1.11.0.tar.gz
+    cd libssh2-1.11.0
 
     rm -rf build && mkdir build && cd build
 
     CMAKE_ARGS+=(-DCRYPTO_BACKEND=OpenSSL \
         -DOPENSSL_ROOT_DIR=$REPO_ROOT/install-openssl/$PLATFORM \
         -DBUILD_EXAMPLES=OFF \
-        -DBUILD_TESTING=OFF)
+        -DBUILD_TESTING=OFF \
+        -DCMAKE_POLICY_VERSION_MINIMUM=3.5)
 
     cmake "${CMAKE_ARGS[@]}" .. 
 
