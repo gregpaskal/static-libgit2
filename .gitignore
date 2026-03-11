@@ -1,8 +1,8 @@
 # ===============================================================
 # @file: .gitignore
 # @filepath: .gitignore
-# @version: 3.0
-# @updated: 2025-01-10 03:48:00 PM CST
+# @version: 4.4
+# @updated: 2026-02-18 10:45:00 PM CDT
 # @author: Greg Paskal
 # @company: MissionWares
 #
@@ -31,19 +31,40 @@
 # 2024-07-22  G. Paskal       1.0      Initial version
 # 2025-05-19  G. Paskal       2.0      Added Private Files
 # 2025-01-10  G. Paskal       2.0      Added mAi™ header standard
-# 2026-01-21  G. Paskal       3.0.     Added Swift installer files
+# 2026-01-21  G. Paskal       3.0      Added Swift installer files
+# 2026-01-30  G. Paskal       4.0      Added FTP and Node
+# 2026-01-31  G. Paskal       4.1      Added .sftpignore
+# 2026-02-18  G. Paskal       4.2      Added __MACOSX zip artifact
+# 2026-02-26  G. Paskal       4.3      Added .pio for PlatformIO
+# 2026-03-07  G. Paskal       4.4      Added Electron Files
 # ===============================================================
-
-# Ignore Mac system files
-.DS_Store
 
 # Allure report files
 .allure
 allure-report
 allure-results
 
-# Ignore Maven target folder
+# FTP
+sftp.json
+.sftpignore
+
+# Mac system files
+.DS_Store
+__MACOSX/
+
+# Maven target folder
 target
+
+# Node
+node_modules/
+
+# Electron build output
+dist/
+out/
+staging/
+
+# PlatformIO
+.pio
 
 # Private files
 .private
