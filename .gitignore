@@ -1,8 +1,8 @@
 # ===============================================================
 # @file: .gitignore
 # @filepath: .gitignore
-# @version: 4.4
-# @updated: 2026-02-18 10:45:00 PM CDT
+# @version: 5.0
+# @updated: 2026-04-09 06:30:00 PM CDT
 # @author: Greg Paskal
 # @company: MissionWares
 #
@@ -13,15 +13,23 @@
 # private/sensitive files that should not be committed to version control.
 #
 # @sections:
-# - Mac system files
-# - Allure report artifacts
-# - Maven build output
-# - Private/sensitive files
+#   01 - Mac System Files
+#   02 - Android / Android Studio
+#   03 - Swift / Xcode / iOS
+#   04 - Maven Build Output
+#   05 - Gradle Build Output
+#   06 - Node / NPM
+#   07 - Electron
+#   08 - PlatformIO
+#   09 - FTP / SFTP
+#   10 - Allure Report Artifacts
+#   11 - Private / Sensitive Files
 #
 # @dependencies:
-# - Git version control system
-# - Maven build system
-# - Allure reporting framework
+#   - Git version control system
+#   - Android Studio / Gradle
+#   - Maven build system
+#   - Allure reporting framework
 #
 # @tags: git, version-control, ignore-patterns, mAi™
 #
@@ -30,47 +38,100 @@
 # ----------  --------------  -------  --------------------------
 # 2024-07-22  G. Paskal       1.0      Initial version
 # 2025-05-19  G. Paskal       2.0      Added Private Files
-# 2025-01-10  G. Paskal       2.0      Added mAi™ header standard
+# 2026-01-10  G. Paskal       2.1      Added mAi™ header standard
 # 2026-01-21  G. Paskal       3.0      Added Swift installer files
 # 2026-01-30  G. Paskal       4.0      Added FTP and Node
 # 2026-01-31  G. Paskal       4.1      Added .sftpignore
 # 2026-02-18  G. Paskal       4.2      Added __MACOSX zip artifact
 # 2026-02-26  G. Paskal       4.3      Added .pio for PlatformIO
 # 2026-03-07  G. Paskal       4.4      Added Electron Files
+# 2026-04-09  G. Paskal       5.0      Added Android / Android Studio
 # ===============================================================
 
-# Allure report files
-.allure
-allure-report
-allure-results
 
-# FTP
-sftp.json
-.sftpignore
-
-# Mac system files
+# ---------------------------------------------------------------
+# 01 - MAC SYSTEM FILES
+# ---------------------------------------------------------------
 .DS_Store
 __MACOSX/
 
-# Maven target folder
+
+# ---------------------------------------------------------------
+# 02 - ANDROID / ANDROID STUDIO
+# ---------------------------------------------------------------
+*.iml
+.idea/
+local.properties
+*.apk
+*.aab
+*.jks
+*.keystore
+captures/
+.externalNativeBuild/
+.cxx/
+
+
+# ---------------------------------------------------------------
+# 03 - SWIFT / XCODE / iOS
+# ---------------------------------------------------------------
+install*
+dependencies
+.swiftpm
+
+
+# ---------------------------------------------------------------
+# 04 - MAVEN BUILD OUTPUT
+# ---------------------------------------------------------------
 target
 
-# Node
+
+# ---------------------------------------------------------------
+# 05 - GRADLE BUILD OUTPUT
+# ---------------------------------------------------------------
+.gradle/
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
+
+
+# ---------------------------------------------------------------
+# 06 - NODE / NPM
+# ---------------------------------------------------------------
 node_modules/
 
-# Electron build output
+
+# ---------------------------------------------------------------
+# 07 - ELECTRON
+# ---------------------------------------------------------------
 dist/
 out/
 staging/
 
-# PlatformIO
+
+# ---------------------------------------------------------------
+# 08 - PLATFORMIO
+# ---------------------------------------------------------------
 .pio
 
-# Private files
+
+# ---------------------------------------------------------------
+# 09 - FTP / SFTP
+# ---------------------------------------------------------------
+sftp.json
+.sftpignore
+.ftpconfig
+
+
+# ---------------------------------------------------------------
+# 10 - ALLURE REPORT ARTIFACTS
+# ---------------------------------------------------------------
+.allure
+allure-report
+allure-results
+
+
+# ---------------------------------------------------------------
+# 11 - PRIVATE / SENSITIVE FILES
+# ---------------------------------------------------------------
 .private
 .private/*.json
-
-# Swift
-install*
-dependencies
-.swiftpm
