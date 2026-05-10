@@ -1,8 +1,8 @@
 # ===============================================================
 # @file: .gitignore
 # @filepath: .gitignore
-# @version: 5.0
-# @updated: 2026-04-09 06:30:00 PM CDT
+# @version: 5.1
+# @updated: 2026-05-10 11:43:00 AM CDT
 # @author: Greg Paskal
 # @company: MissionWares
 #
@@ -24,6 +24,7 @@
 #   09 - FTP / SFTP
 #   10 - Allure Report Artifacts
 #   11 - Private / Sensitive Files
+#   12 - AI Assist / Generated Files
 #
 # @dependencies:
 #   - Git version control system
@@ -46,6 +47,7 @@
 # 2026-02-26  G. Paskal       4.3      Added .pio for PlatformIO
 # 2026-03-07  G. Paskal       4.4      Added Electron Files
 # 2026-04-09  G. Paskal       5.0      Added Android / Android Studio
+# 2026-05-10  G. Paskal       5.1      Added AI Assist generated files
 # ===============================================================
 
 
@@ -135,3 +137,9 @@ allure-results
 # ---------------------------------------------------------------
 .private
 .private/*.json
+
+
+# ---------------------------------------------------------------
+# 12 - AI ASSIST / GENERATED FILES
+# ---------------------------------------------------------------
+.missionwares/AiAssist/generated/
