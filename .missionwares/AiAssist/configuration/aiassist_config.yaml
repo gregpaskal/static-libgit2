@@ -2,8 +2,8 @@
 # @title mAi - AI Assist Configuration
 # @file aiassist_config.yaml
 # @filepath .missionwares/AiAssist/configuration/aiassist_config.yaml
-# @version 3.2.0
-# @updated 2026-03-16 01:07:46 PM CDT
+# @version 3.7.0
+# @updated 2026-07-28 05:17:00 PM CDT
 #
 # @description
 # Configuration for the MissionWares AI Assist application.
@@ -13,6 +13,8 @@
 # - common_ignore_patterns    - Single source of truth for all generators
 # - ai_directive_methodology  - AI Directive Methodology location and output filename
 # - ai_directive_mission      - AI Directive Mission location and output filename
+# - dashboard_engine          - Living Dashboard engine source of truth (Core_03 2.2.0)
+# - wire                      - THE COURIER fleet listener (this config is the fleet manifest)
 # - documentation             - Project documentation management
 # - generate_tree             - Project tree visualization
 # - generate_paths            - File path listing
@@ -63,10 +65,11 @@ common_ignore_patterns:
   - "*.afdesign"
   - "*.ttf"
   - "*.wav"
-  - "*.zip"
   - "*.mmdb"
   - "Assets.xcassets"
   - "*.entitlements"
+  - "_ai_directive_mission"
+  - "_workorder"
 
 # ---------------------------------------------------------------
 # Common Exceptions — override ignore patterns for specific files
@@ -91,6 +94,30 @@ ai_directive:
     directory: _docs/_ai_directive_mission/
     output_filename: AI_Directive_Mission.md
     optional: true
+
+# ---------------------------------------------------------------
+# Dashboard Engine — Living Dashboard framework (Core_03 2.2.0)
+# Source of truth for the engine files. Consumers receive STAMPED
+# copies into their _docs/_dashboard/ (manual today; Launch-stamped
+# when AiAssist automates the proven motion). Engine changes happen
+# at the source only — never in a consumer's copy.
+# ---------------------------------------------------------------
+dashboard_engine:
+  directory: /Users/gregpaskal/GoogleDrive/Documents/Development/Methodology/Project-mAi-Methodology/dashboard_engine/
+  templates:
+    index: index.html
+  framework:
+    - _framework/dashboard.js
+    - _framework/styles.css
+
+# ---------------------------------------------------------------
+# Wire — THE COURIER fleet listener channel.
+# Routing needs no config: every Navigation Bay project is
+# deliverable. Spec: WireConfig in ProjectConfig.swift.
+# ---------------------------------------------------------------
+wire:
+  topic: "greg-mai-wire-k4m9"
+  ping_topic: "greg-pingme-x7k2-mw"
 
 # ---------------------------------------------------------------
 # Documentation
